@@ -23,18 +23,15 @@ class DatabaseSeeder extends Seeder
         ]); 
 
         Category::create([
-            'name'  => 'Seal',
-            'slug'  => 'seal'
+            'category_name'  => 'Seal',
         ]);
 
         Category::create([
-            'name'  => 'Safety',
-            'slug'  => 'safety'
+            'category_name'  => 'Safety',
         ]);
 
         Category::create([
-            'name'  => 'Furniture',
-            'slug'  => 'furniture'
+            'category_name'  => 'Furniture',
         ]);
 
         Product::create([
