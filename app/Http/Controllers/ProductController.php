@@ -16,7 +16,8 @@ class ProductController extends Controller
         return view('product', [
             'title'     => $product->product_name,
             "categories" => Category::all(),
-            'product'   => $product
+            'product'   => $product,
+            'galleries' => $product->gallery
         ]);
     }
 }

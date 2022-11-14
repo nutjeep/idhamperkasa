@@ -73,16 +73,29 @@
     <main>
         <div class="form">
             <h3 class="text-center mb-5 fw-bold text-white">Login Form</h3>
-            <form action="" method="">
+
+            @if(session()->has('loginError'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('loginError') }}
+                </div>
+            @endif
+
+            <form action="/login" method="post">
                 @csrf
                 <div class="input">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="username" placeholder="name@example.com" required>
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="name@example.com" name="username" value="{{ old('username') }}" autofocus required>
                         <label for="username">Username</label>
+                        @error('username')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                       </div>
                       <div class="form-floating mb-5">
-                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" name="password" required>
                         <label for="password">Password</label>
+                        @error('password')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                       </div>
                 </div>
                 <button class="btn btn-primary">Login</button>

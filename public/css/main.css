@@ -12,6 +12,7 @@ html {
 body {
   margin-top: 1rem;
   font-family: 'Manrope', sans-serif;
+  height: 100vh;
 }
 
 body h2 {
@@ -40,6 +41,7 @@ body ul li a {
 .navbar {
   background-color: #E6DD3B;
   height: 50px;
+  z-index: 999;
 }
 
 .navbar .container {
@@ -58,7 +60,7 @@ body ul li a {
 
 .navbar .container ul li {
   height: 100%;
-  padding: 0 1rem;
+  padding: 0 .5rem;
   font-weight: 500;
   line-height: 30px;
   -webkit-transition: .3s;
@@ -146,22 +148,38 @@ body ul li a {
           transform: scale(0);
 }
 
+.carousel {
+  margin-bottom: 50px;
+  height: 500px;
+}
+
+.carousel .carousel-inner {
+  justify-content: center;
+  height: 100%;
+}
+
+.carousel .carousel-inner .carousel-item {
+  justify-content: center;
+}
+
 .body-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
 }
 
 .body-content .side-bar {
   z-index: 999999;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1E6F5C), to(#29BB89));
-  background-image: linear-gradient(#1E6F5C, #29BB89);
+  /* background-image: -webkit-gradient(linear, left top, left bottom, from(#1E6F5C), to(#29BB89)); */
+  background-color: #289672;
   width: 25vw;
   float: left;
+  padding-bottom: 30px;
 }
 
 .body-content .side-bar h5 {
-  background-color: #29BB89;
+  background-color: #1E6F5C;
   padding: .5rem;
   color: white;
   font-weight: 500;
@@ -253,12 +271,19 @@ footer {
   .navbar .container .toggle {
     opacity: 1;
   }
+  .navbar ul li {
+    font-size: 13px;
+  }
+  .carousel {
+    height: 100%;
+  }
   .body-content {
     position: inherit;
   }
   .body-content .side-bar {
-    -webkit-transform: translateX(-110%);
-            transform: translateX(-110%);
+    -webkit-transform: translate(-110%, -50%);
+            transform: translate(-110%, -50%);
+
     position: absolute;
     width: 60vw;
     height: 80vh;
@@ -268,8 +293,8 @@ footer {
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   }
   .body-content .slide {
-    -webkit-transform: translate(0);
-            transform: translate(0);
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
   }
   .body-content .content {
     width: 100%;

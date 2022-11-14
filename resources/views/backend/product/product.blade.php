@@ -5,9 +5,19 @@
       <h1 class="h2">Product</h1>
   </div>
 
-  <a href="/dashboard/product/create" target="blank" class="btn btn-primary mb-3">Add new product</a>
+  <a href="/dashboard/product/create" class="btn btn-primary mb-3">Add new product</a>
 
   <div class="col-lg-8">
+    @if(session()->has('success'))
+      <div class="alert alert-success" role="alert">
+        {{ session('success') }}
+      </div>
+    @endif
+    @if(session()->has('update'))
+      <div class="alert alert-warning" role="alert">
+        {{ session('success') }}
+      </div>
+    @endif
     <table class="table table-responsive table-striped">
       <thead>
         <tr>
@@ -18,19 +28,26 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($products as $product)
-          <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>{{ $product->product_name }}</td>
-            <td>{{ $product->category->category_name }}</td>
-            <td>
-              <a href="/dashboard/product/{{ $product->id }}/edit" target="_blank" title="Update" class="badge bg-warning me-2"><span data-feather="edit"></span></a>
-              <a href="#" title="Delete" class="badge bg-danger"><span data-feather="trash-2"></span></a>
-            </td>
-          </tr>
-        @endforeach
+        @forelse ($products as $product)
+        <tr>
+          <td>{{ $loop->iteration }}</td>
+          <td>{{ $product->product_name }}</td>
+          <td>{{ $product->category->category_name }}</td>
+          <td class="d-flex">
+            <a href="/dashboard/product/{{ $product->id }}/edit" title="Update" class="badge bg-warning me-2"><span data-feather="edit"></span></a>
+            <form action="/dashboard/product/{{ $product->id }}" method="post">
+              @csrf
+              @method('delete')
+              <button class="badge bg-danger border-0" title="Delete" onclick="return confirm('Anda ingin menghapus data ?')"><span data-feather="trash-2"></span></button>
+            </form>
+          </td>
+        </tr>
+        @empty
+        <tr>
+          <td colspan="5" class="text-center text-danger"><i>No product yet!</i></td>
+        </tr>
+        @endforelse
       </tbody>
     </table>
   </div>
-
 @endsection

@@ -8,15 +8,21 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/category') ? 'active' : '' }}" href="/dashboard/category">
+            <span data-feather="list"></span>
+            Category
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{ Request::is('dashboard/product*') ? 'active' : '' }}" href="/dashboard/product">
             <span data-feather="shopping-cart"></span>
             Product
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/category') ? 'active' : '' }}" href="/dashboard/category">
-            <span data-feather="list"></span>
-            Category
+          <a class="nav-link {{ Request::is('dashboard/slider') ? 'active' : '' }}" href="/dashboard/slider">
+            <span data-feather="copy"></span>
+            Slider
           </a>
         </li>
       </ul>

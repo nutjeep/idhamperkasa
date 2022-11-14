@@ -34,17 +34,29 @@
       </div>
     </div>
   </div>
+  <hr>
+
+  @if(session()->has('success'))
+    <div class="alert alert-success" role="alert">
+      {{ session('success') }}
+    </div>
+  @endif
 
   <div class="row">
     <div class="col-lg-7">
-      <h3>About</h3>
+      <h4>Home page</h4>
       @foreach ($abouts as $about)
-        <div>{!! $about->about !!}</div>
+        <div class="text-truncate">{!! $about->about !!}</div>
+      @endforeach
+
+      <h4 class="mt-5">Company Profile</h4>
+      @foreach ($abouts as $about)
+        <div class="text-truncate">{!! $about->company !!}</div>
       @endforeach
     </div>
     <div class="col-lg-4 offset-lg-1">
       <div class="visi mb-3">
-        <h3>Visi</h3>
+        <h4>Visi</h4>
         <div>
           @foreach ($abouts as $about)
             <div>{!! $about->visi !!}</div>
@@ -52,7 +64,7 @@
         </div>
       </div>
       <div class="misi">
-        <h3>Misi</h3>
+        <h4>Misi</h4>
         <div>
           @foreach ($abouts as $about)
             <div>{!! $about->misi !!}</div>
@@ -63,6 +75,7 @@
   </div>
 
   @foreach ($abouts as $about)
-    <a href="/dashboard/{{ $about->id }}/edit" target="_blank" class="mt-3 mb-5 btn btn-warning">Edit Home page</a>
+    <a href="/dashboard/{{ $about->id }}/show" class="mt-3 mb-5 btn btn-primary">Show</a>
+    <a href="/dashboard/{{ $about->id }}/edit" class="mt-3 mb-5 btn btn-warning">Edit</a>
   @endforeach
 @endsection

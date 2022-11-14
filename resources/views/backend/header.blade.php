@@ -6,7 +6,10 @@
   <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3 text-warning" href="#">Sign out</a>
+      <form action="/logout" method="post">
+        @csrf
+        <button type="submit" class="btn nav-link px-3 text-warning">Logout</button>
+      </form>
     </div>
   </div>
 </header>
