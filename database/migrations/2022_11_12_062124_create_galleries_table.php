@@ -17,7 +17,7 @@ class CreateGalleriesTable extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
             $table->string('gallery')->nullable();
-            $table->foreignIdFor(Product::class)->onDelete('cascade');
+            $table->foreignIdFor(Product::class)->nullable();
             $table->timestamps();
         });
     }

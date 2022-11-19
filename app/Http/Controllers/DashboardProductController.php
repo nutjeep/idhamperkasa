@@ -104,72 +104,56 @@ class DashboardProductController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
     {
-        $product = Product::findOrFail($product->id);
-        $product->category_id = $request->validate(['required']);
-        $product->product_name = $request->validate(['required|max:255']);
-        $product->catalog = $request->validate(['file|image|max:2048']);
+        $rules = [
+            "category_id" => "required",
+            "product_name"  => "required|max:255",
+            'catalog'       => 'image|file|max:2048',
+        ];
 
         if($request->slug != $product->slug) {
-            $product->slug = $request->validate('required|unique:products');
+            $rules["slug"] = "required|unique:products|max:255";
         }
+
+        $validatedData = $request->validate($rules);
 
         if($request->file('catalog')) {
-            if($request->oldImage) {
+            if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $request->catalog = $request->file('catalog')->store('catalog-images');
+            $validatedData['catalog'] = $request->file('catalog')->store('catalog-images');
         }
-        $product->save();
 
-        // $rules = [
-        //     'category_id'   => 'required',
-        //     'product_name'  => 'required|max:255',
-        //     'catalog'       => 'file|image|max:2048',
-        // ];
+        Product::where('id', $product->id)->update($validatedData);
 
-        // if($request->slug != $product->slug) {
-        //     $rules['slug'] = 'required|unique:products';
-        // }
-
-        // $validatedData = $request->validate($rules);
-
-        // if($request->file('catalog')) {
-        //     if($request->oldImage) {
-        //         Storage::delete($request->oldImage);
-        //     }
-        //     $validatedData['catalog'] = $request->file('catalog')->store('catalog-images');
-        // }
-
-        // Product::where('id', $product->id)->update($validatedData);
-
-        if ($request->has('gallery')) {
+        // Gallery images
+        if ($request->hasFile('gallery')) {           
             foreach($request->file('gallery') as $gall) {
                 $gallery_name = $gall->getClientOriginalName().'.'.strtolower($gall->getClientOriginalExtension());
+                $request["product_id"] = $product->id;
+                $request["gallery"] = $gallery_name;
                 $upload_path = 'storage/gallery-images/';
                 $gall->move($upload_path, $gallery_name);
 
-                Gallery::create([
-                    'product_id'    => $create->id,
-                    'gallery'       => $gallery_name
-                ]);
+                Gallery::create($request->all());
             }
         }
                 
-        return redirect('/dashboard/product')->with('update', 'Product has been updated');
+        return redirect('/dashboard/product')->with('updated', 'Product has been updated');
     }
 
-    public function delete_gallery($id) {
+    public function delete_gallery($id)
+    {
         $gallery = Gallery::findOrFail($id);
         if(File::exists("storage/gallery-images/".$gallery->gallery)) {
             File::delete("storage/gallery-images/".$gallery->gallery);
         }
+        
         Gallery::find($id)->delete();
         return back();
     }
@@ -180,7 +164,7 @@ class DashboardProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product, Gallery $gall)
+    public function destroy(Product $product)
     {
         if($product->catalog) {
             Storage::delete($product->catalog);
@@ -193,11 +177,18 @@ class DashboardProductController extends Controller
             }
         }
 
-        Product::destroy([
-            $product->id,
-            $product->gallery
-        ]);
+        if (!empty($product_gallery)) {
+            Product::destroy([
+                $product->id,
+                $product->gallery
+            ]);
+        } else {
+            Product::destroy([
+                $product->id,
+            ]);
+        }
 
-        return redirect('/dashboard/product')->with('delete', 'Product has been deleted');
+
+        return redirect('/dashboard/product')->with('deleted', 'New product has been deleted'); 
     }
 }

@@ -41,13 +41,6 @@
             width: 100%;
         }
 
-        main img {
-            position: absolute;
-            z-index: -1;
-            transform: translateY(40%);
-            width: 90%;
-        }
-
     </style>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <title>Login | IDHAM</title>
@@ -96,13 +89,24 @@
                         @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                        <input class="mt-2" type="checkbox" onclick="show_password()"> Show password
                       </div>
                 </div>
                 <button class="btn btn-primary">Login</button>
             </form>
         </div>
-        <img src="img/doodle.png" alt="doodle">
     </main>
+
+    <script>
+        function show_password() {
+            const password = document.getElementById("password");
+            if ( password.type === "password" ) {
+                password.type = "text"
+            } else {
+                password.type = "password"
+            }
+        }
+    </script> 
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

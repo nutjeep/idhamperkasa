@@ -10,11 +10,11 @@
 
     <div class="row">
         <div class="col-lg-6">
-            <form action="/dashboard/product/{{ $product->id }}" method="post" enctype="multipart/form-data"> 
-                @method('patch')
+            <form action="/dashboard/product/{{ $product->id }}" method="post" enctype="multipart/form-data">
+                @method('put')
                 @csrf
                 <label for="">Category</label>
-                <select class="form-select mb-3">
+                <select class="form-select mb-3" name="category_id">
                     @foreach ($categories as $category)
                         @if (old('category_id', $product->category_id) == $category->id)
                             <option value="{{ $category->id }}" selected>{{ $category->category_name }}</option>
@@ -23,36 +23,51 @@
                         @endif
                     @endforeach
                 </select>
-    
+
                 <div class="mb-3">
                     <label for="product_name">Product name</label>
                     <input type="text" class="form-control" name="product_name" id="product_name" value="{{ old('product_name', $product->product_name) }}" required>
+                    @error('product_name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
-    
+
                 <div class="mb-3">
                     <label for="slug">slug</label>
                     <input type="text" class="form-control form-control-sm" name="slug" id="slug" value="{{ old('slug', $product->slug) }}" required>
+                    @error('slug')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
-    
+
+                <input type="hidden" name="oldImage" value="{{ $product->catalog }}">
+
                 <div class="mb-3">
-                    <label for="catalog">Catalog image</label>
+                    <label for="catalog">Cover image</label>
                     <input type="file" accept="image/*" class="form-control" name="catalog" id="catalog">
-                    <p class="text-black-50">Max file 1 MB</p>
+                    <p class="text-black-50">Max file 2 MB</p>
                     @error('catalog')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
+                
                 <div class="mb-3">
                     <label for="gallery">New image gallery</label>
                     <input type="file" class="form-control" accept="image/*" id="gallery" name="gallery[]" multiple>
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
-            </form>
+            </form> 
         </div>
+
+        {{-- Gallery image delete --}}
         <div class="col-lg-6 d-flex" style="flex-wrap: wrap;">
-            @if (count($product->gallery) > 0)
+            @if (!empty($product->gallery))
             @foreach ($product->gallery as $gallery)
                 <form action="/dashboard/product/gallery/{{ $gallery->id }}" method="post">
                     @csrf

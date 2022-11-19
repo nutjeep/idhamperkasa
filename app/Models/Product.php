@@ -11,6 +11,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id']; 
+
     public function category() {
         return $this->belongsTo(Category::class);
     }
@@ -19,6 +21,4 @@ class Product extends Model
         return $this->hasMany(Gallery::class);
     }
 
-    protected $guarded = ['id']; 
-    protected $fillable = ['product_name', 'category_id', 'slug', 'catalog'];
 }

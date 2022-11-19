@@ -33,10 +33,12 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'category_name'  => 'Seal',
         ]);
-
-        // Category::create([
-        //     'category_name'  => 'Safety',
-        // ]);
+        Category::create([
+            'category_name'  => 'Safety',
+        ]);
+        Category::create([
+            'category_name'  => 'Iron',
+        ]);
 
         // Category::create([
         //     'category_name'  => 'Furniture',

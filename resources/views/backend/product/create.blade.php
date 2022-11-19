@@ -2,6 +2,8 @@
 
 @section('container')   
 
+    <a href="/dashboard/product" class="btn btn-outline-secondary mt-3">< Back</a>
+
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1>Add new product</h1>
     </div>
@@ -38,7 +40,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="catalog">Image</label>
+                <label for="catalog">Cover image</label>
                 <input type="file" accept="image/*" class="form-control @error('catalog') is-invalid @enderror" name="catalog" id="catalog">
                 <p class="text-black-50">Max file 2 MB</p>
                 @error('catalog')
@@ -55,14 +57,3 @@
         </form>
     </div>
 @endsection
-
-<script>
-    $(document).ready(function() {
-        $('#summernote').summernote({
-            toolbar: [
-                ['insert', ['picture']],
-                ['view', ['codeview']]
-            ]
-        });
-    });
-</script>
