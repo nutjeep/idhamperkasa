@@ -60,10 +60,6 @@ Route::get('/dashboard/{about:id}/edit', [AboutController::class, 'edit'])->midd
 Route::get('/dashboard/{about:id}/show', [AboutController::class, 'show'])->middleware('auth');
 Route::put('/dashboard/{about}', [AboutController::class, 'update']);
 
-// Route::get('/dashboard/product', [DashboardProductController::class, 'index'])->middleware('auth');
-// Route::get('/dashboard/product/{product:id}/edit', [DashboardProductController::class, 'edit'])->middleware('auth');
-// Route::put('/dashboard/product/{product:id}', [DashboardProductController::class, 'update'])->middleware('auth');
-// Route::delete('/dashboard/product/{product:id}', [DashboardProductController::class, 'destroy'])->middleware('auth');
 Route::resource('/dashboard/product', DashboardProductController::class)->middleware('auth');
 Route::delete('/dashboard/product/gallery/{gallery:id}', [DashboardProductController::class, 'delete_gallery'])->middleware('auth');
 

@@ -20,8 +20,6 @@ class CategoryController extends Controller
             'category_name' => 'required|max:255'
         ]);
 
-        // return $request;
-
         Category::create($validatedData);
         return redirect('/dashboard/category')->with('success', 'New category has been added');
     }

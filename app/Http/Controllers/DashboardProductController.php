@@ -129,7 +129,7 @@ class DashboardProductController extends Controller
             $validatedData['catalog'] = $request->file('catalog')->store('catalog-images');
         }
 
-        Product::where('id', $product->id)->update($validatedData);
+        $update = Product::where('id', $product->id)->update($validatedData);
 
         // Gallery images
         if ($request->hasFile('gallery')) {           
@@ -140,7 +140,10 @@ class DashboardProductController extends Controller
                 $upload_path = 'storage/gallery-images/';
                 $gall->move($upload_path, $gallery_name);
 
-                Gallery::create($request->all());
+                Gallery::create([
+                    'product_id'    => $product->id,
+                    'gallery'       => $gallery_name
+                ]);
             }
         }
                 
@@ -175,6 +178,7 @@ class DashboardProductController extends Controller
             if(File::exists("storage/gallery-images/".$gall->gallery)) {
                 File::delete("storage/gallery-images/".$gall->gallery);
             }
+            Gallery::destroy($galleries);
         }
 
         if (!empty($product_gallery)) {
@@ -187,8 +191,6 @@ class DashboardProductController extends Controller
                 $product->id,
             ]);
         }
-
-
-        return redirect('/dashboard/product')->with('deleted', 'New product has been deleted'); 
+        return redirect('/dashboard/product')->with('deleted', 'Product has been deleted'); 
     }
 }

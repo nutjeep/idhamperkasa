@@ -1,0 +1,16 @@
+{
+    "navbar" : [
+        {
+            "nav-item-text" : "Home",
+            "href" : "/"
+        },
+        {
+            "nav-item-text" : "Company Profile",
+            "href"  : "/company"
+        },
+        {
+            "nav-item-text" : "Contact us",
+            "href"  : "/contact"
+        }
+    ]
+}
