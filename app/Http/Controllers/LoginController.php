@@ -35,4 +35,8 @@ class LoginController extends Controller
     
         return redirect('/');
     }
+
+    public function registration () {
+        return view('backend.register');
+    }
 }

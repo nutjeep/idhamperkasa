@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="developer" content="Muhammad Najib Abdulloh">
+    <meta name="author" content="Muhammad Najib 'Abduloh - Abdi Tech">
+
+    <meta name="keywords" content="Perusahaan seal, Seal berkualitas, CNC, Rubber product, Anti Slip, Pallet, Membran">
+    <meta name="company" content="CV. IDHAM PERKASA">
+    <meta title="CV. IDHAM PERKASA" content="CV.IDHAM PERKASA adalah perusahaan swasta yang bergerak di bidang Rubber Product (Seal, Anti Slip, Pallet, Membran, dll). Dengan didukung oleh sumber daya manusia yang berpengalaman di dalam lingkup karet dan ditunjang dengan mesin cetak & CNC modern">
+    <meta name="description" content="CV.IDHAM PERKASA juga melayani segala macam jenis cetak karet dengan berbagai bentuk untuk memenuhi kebutuhan pasar dan perkembangan  yang begitu pesat. Kami menggunakan mesin CNC dalam pembuatan matras moding agar menghasilkan matras dengan presisi yang cukup tinggi, sehingga memenuhi persyaratan untuk kebutuhan yang sangat spesifik">
+    <meta>
+    <meta name="description" content="CV. IDHAM PERKASA merupakan perusahaaan yang bergerak di bidang general supplier, untuk menjadi bagian support kebutuhan mitra kerja dalam bidang pengadaan barang">
+    <meta name="theme-color" content="#1E6F5C">
+    <meta name="theme-color" content="#E6DD3B">
 
     <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />

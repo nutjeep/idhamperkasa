@@ -10,49 +10,25 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\DashboardProductController;
 
-Route::get('/', function(){
-    return view('home', [
-        "title"  => "IDHAM PERKASA",
-        "abouts"  => About::all(),
-        "products" => Product::all(),
-        "categories" => Category::all(),
-        "sliders"   => Slider::all()
-    ]);
-});
+Route::get('/', [LandingpageController::class, 'index']);
+Route::get('/company', [LandingpageController::class, 'company']);
+Route::get('/contact', [LandingpageController::class, 'contact']);
 
-Route::get('/company', function(){
-    return view('company', [
-        "title"     => 'Profile | IDHAM PERKASA',
-        "abouts"    => About::all(),
-        "products"  => Product::all(),
-        "categories"=> Category::all()
-    ]);
-});
-
-Route::get('/contact', function () {
-    return view('contact', [
-        "title" => "Contact | IDHAM PERKASA",
-        "products" => Product::all(),
-        "categories" => Category::all()
-    ]);
-});
-
-
-// <============ Backend ============ >
+// <============ Backend ============>
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
-
-Route::get('/register', function() {
-    return view('backend.register');
-});
+Route::get('/registration', [LoginController::class, 'registration']);
 
 Route::get('/dashboard', function(){
     return view('backend.dashboard', [
         'title'     => 'Dashboard | Idham Perkasa',
-        'abouts'    => About::all()
+        'abouts'    => About::all(),
+        'product'   => Product::count(),
+        'category'  => Category::count()
     ]);
 })->middleware('auth');
 

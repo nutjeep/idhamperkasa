@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-5 mb-5">
                 <div class="contact sub-content mb-4">
-                    <h2 class="mb-3">Contact Surabaya</h2>
+                    <h3 class="mb-3">Surabaya</h3>
                     <table>
                         <tbody>
                             <tr>
@@ -40,7 +40,7 @@
             </div>
             <div class="col-lg-5 offset-lg-1">
                 <div class="contact sub-content mb-4">
-                    <h2 class="mb-3">Contact Balikpapan</h2>
+                    <h3 class="mb-3">Balikpapan</h3>
                     <table>
                         <tbody>
                             <tr>
@@ -53,7 +53,7 @@
                             </tr>
                             <tr>
                                 <th scope="row"><i class="bi bi-geo-alt me-3"></i></th>
-                                <td>Jl. AMD Gn. Empat RT. 14 No. 14 Kel. Margomulyo, Kec. Balikpapan Barat, Kota Balikpapan</td>
+                                <td>Jl. AMD Gn. Empat RT. 14 No. 14 Kel. Margomulyo, Kec. Balikpapan Barat, Kota Balikpapan, Kalimantan Timur</td>
                             </tr>
                         </tbody>
                     </table>

@@ -1,10 +1,5 @@
-@php
-    $path = storage_path() . '/json/navbar.json';
-    $json = json_decode(file_get_contents($path), true);
-    $nav_item = $json['navbar'];
-@endphp
-
-<div class="container logo">
+<div class="container logo" style="display: flex;">
+    <img src="{{ asset('img/logo.png') }}" alt="Logo Perusahaan" style="max-height: 50px; width: auto; margin-right: 15px;">
     <h1>IDHAM <span>PERKASA</span></h1>
 </div>
 <div class="navbar mb-5">

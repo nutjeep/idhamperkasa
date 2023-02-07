@@ -9,14 +9,14 @@
 
 <div class="col-lg-8">
     @if(session()->has('success'))
-        <div class="alert alert-success" role="alert">
-        {{ session('success') }}
-        </div>
+      <div class="alert alert-success" role="alert">
+      {{ session('success') }}
+      </div>
     @endif
     @if(session()->has('delete'))
-        <div class="alert alert-warning" role="alert">
-        {{ session('delete') }}
-        </div>
+      <div class="alert alert-warning" role="alert">
+      {{ session('delete') }}
+      </div>
     @endif
 
     <table class="table table-responsive table-striped">

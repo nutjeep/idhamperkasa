@@ -49,7 +49,7 @@
                 <div class="mb-3">
                     <label for="catalog">Cover image</label>
                     <input type="file" accept="image/*" class="form-control" name="catalog" id="catalog">
-                    <p class="text-black-50">Max file 2 MB</p>
+                    <p class="text-black-50">Max file 500 kb</p>
                     @error('catalog')
                         <div class="invalid-feedback">
                             {{ $message }}

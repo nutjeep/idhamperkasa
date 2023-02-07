@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
-    public function index () {
+    public function index (Category $category) {
+
         return view('backend.category', [
-            'title'     => 'Category | Idham Perkasa',
+            'title'         => 'Category | Idham Perkasa',
             'categories'    => Category::all()
         ]);
     }

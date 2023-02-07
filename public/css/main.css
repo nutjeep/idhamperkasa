@@ -171,9 +171,9 @@ body ul li a {
 
 .body-content .side-bar {
   z-index: 999999;
-  /* background-image: -webkit-gradient(linear, left top, left bottom, from(#1E6F5C), to(#29BB89)); */
+  height: fit-content;
   background-color: #289672;
-  width: 25vw;
+  width: 20vw;
   float: left;
   padding-bottom: 30px;
 }
@@ -265,6 +265,14 @@ footer {
   background-image: -webkit-gradient(linear, left top, right top, from(#1E6F5C), to(#29BB89));
   background-image: linear-gradient(to right, #1E6F5C, #29BB89);
   bottom: 0;
+}
+
+footer .logo h3 span {
+  color:#E6DD3B;
+}
+
+footer .row {
+  color: #addda7;
 }
 
 @media screen and (max-width: 576px) {

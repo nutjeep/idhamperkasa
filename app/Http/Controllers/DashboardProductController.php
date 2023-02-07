@@ -51,7 +51,7 @@ class DashboardProductController extends Controller
             'category_id'   => 'required',
             'product_name'  => 'required|max:255',
             'slug'          => 'required|unique:products|max:255',
-            'catalog'       => 'image|file|max:2048',
+            'catalog'       => 'image|file|max:500',
         ]);
 
         if($request->file('catalog')) {
@@ -111,9 +111,9 @@ class DashboardProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $rules = [
-            "category_id" => "required",
+            "category_id"   => "required",
             "product_name"  => "required|max:255",
-            'catalog'       => 'image|file|max:2048',
+            'catalog'       => 'image|file|max:500',
         ];
 
         if($request->slug != $product->slug) {

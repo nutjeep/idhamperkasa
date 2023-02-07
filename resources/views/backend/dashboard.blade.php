@@ -1,16 +1,13 @@
 @extends('backend.main')
-@php
-  $product = App\Models\Product::count();
-  $category = App\Models\Category::count();
-@endphp
+
 @section('container')
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h2>Dashboard</h2>
   </div>
 
   <div class="row mb-4 d-flex">
-    <div class="col-lg-4">
-      <div class="card my-3">
+    <div class="col-lg-3">
+      <div class="card my-3" style="box-shadow: 3px 3px 5px rgba(0,0,0,0.1);">
         <div class="card-body bg-primary">
           <h6 class="card-text text-white-50">All Product</h6>
           <h5 class="card-title text-white mb-2">{{ $product }} products</h5>
@@ -21,8 +18,8 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
-      <div class="card my-3">
+    <div class="col-lg-3">
+      <div class="card my-3" style="box-shadow: 3px 3px 5px rgba(0,0,0,0.1);">
         <div class="card-body bg-secondary">
           <h6 class="card-text text-white-50">All Category</h6>
           <h5 class="card-title text-white mb-2">{{ $category }} categories</h5>
@@ -43,31 +40,34 @@
   @endif
 
   <div class="row">
-    <div class="col-lg-7">
-      <h4>Home page</h4>
-      @foreach ($abouts as $about)
-        <div class="text-truncate">{!! $about->about !!}</div>
-      @endforeach
-
-      <h4 class="mt-5">Company Profile</h4>
-      @foreach ($abouts as $about)
-        <div class="text-truncate">{!! $about->company !!}</div>
-      @endforeach
+    <div class="col-lg-3">
+      <div class="card dashboard-item home mb-3" style="padding: 15px; box-shadow: 3px 3px 5px rgba(0,0,0,0.1);">
+        <h4>Home page</h4>
+        @foreach ($abouts as $about)
+          <div class="text-truncate">{!! $about->about !!}</div>
+        @endforeach
+      </div>
+      <div class="card dashboard-item company" style="padding: 15px; box-shadow: 3px 3px 5px rgba(0,0,0,0.1);">
+        <h4>Company Profile</h4>
+        @foreach ($abouts as $about)
+          <div class="text-truncate">{!! $about->company !!}</div>
+        @endforeach
+      </div>
     </div>
-    <div class="col-lg-4 offset-lg-1">
-      <div class="visi mb-3">
+    <div class="col-lg-3">
+      <div class="card dashboard-item visi mb-3" style="padding: 15px; box-shadow: 3px 3px 5px rgba(0,0,0,0.1);">
         <h4>Visi</h4>
         <div>
           @foreach ($abouts as $about)
-            <div>{!! $about->visi !!}</div>
+            <div class="text-truncate">{!! $about->visi !!}</div>
           @endforeach
         </div>
       </div>
-      <div class="misi">
+      <div class="card dashboard-item misi" style="padding: 15px; box-shadow: 3px 3px 5px rgba(0,0,0,0.1);">
         <h4>Misi</h4>
         <div>
           @foreach ($abouts as $about)
-            <div>{!! $about->misi !!}</div>
+            <div class="text-truncate">{!! $about->misi !!}</div>
           @endforeach
         </div>
       </div>

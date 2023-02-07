@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductController extends Controller
 {
 
-    public function show(Product $product)
+    public function show (Product $product)
     {
         return view('product', [
             'title'     => $product->product_name,
