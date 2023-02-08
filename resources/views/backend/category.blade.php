@@ -27,6 +27,7 @@
           <th scope="col">#</th>
           <th scope="col">Category</th>
           <th scope="col">Total product</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>

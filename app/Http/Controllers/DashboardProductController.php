@@ -20,7 +20,7 @@ class DashboardProductController extends Controller
     public function index()
     {
         return view('backend.product.product', [
-            'title'     => 'Product | Idham Perkasa',
+            'title'     => 'Product | Dashboard',
             'products'  => Product::all(),
             'categories' => Category::all(),
         ]);
@@ -96,7 +96,7 @@ class DashboardProductController extends Controller
     public function edit(Product $product)
     {
         return view('backend.product.edit', [
-            'title'         => 'Edit product',
+            'title'         => 'Edit | Product',
             'product'       => $product,
             'categories'    => Category::all(),
         ]);

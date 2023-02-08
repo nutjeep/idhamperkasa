@@ -5,7 +5,7 @@
     <a href="/dashboard/product" class="btn btn-outline-secondary mt-3">< Back</a>
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1>Edit product</h1>
+        <h1>Edit Product</h1>
     </div>
 
     <div class="row">
@@ -49,7 +49,7 @@
                 <div class="mb-3">
                     <label for="catalog">Cover image</label>
                     <input type="file" accept="image/*" class="form-control" name="catalog" id="catalog">
-                    <p class="text-black-50">Max file 500 kb</p>
+                    <p class="text-black-50">Max file 500 kb | Click <a href="https://squoosh.app/">here</a> for resizing image</p>
                     @error('catalog')
                         <div class="invalid-feedback">
                             {{ $message }}

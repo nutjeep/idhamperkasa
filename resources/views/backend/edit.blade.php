@@ -28,7 +28,7 @@
                 <input id="misi" type="hidden" name="misi" value="{!! old('misi', $about->misi) !!}">
                 <trix-editor input="misi"></trix-editor>
             </div>
-            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
 @endsection

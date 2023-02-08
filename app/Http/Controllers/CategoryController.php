@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function index (Category $category) {
 
         return view('backend.category', [
-            'title'         => 'Category | Idham Perkasa',
+            'title'         => 'Category | Dashboard',
             'categories'    => Category::all()
         ]);
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Slider;
+use App\Models\Contact;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -22,6 +23,7 @@ class LandingpageController extends Controller
             "products"      => Product::all(),
             "categories"    => Category::all(),
             "sliders"       => Slider::all(),
+            "contacts"      => Contact::all(),
             "nav_item"      => $nav_item
         ]);
     }
@@ -37,6 +39,7 @@ class LandingpageController extends Controller
             "abouts"        => About::all(),
             "products"      => Product::all(),
             "categories"    => Category::all(),
+            "contacts"      => Contact::all(),
             "nav_item"      => $nav_item
         ]);
     }
@@ -51,6 +54,7 @@ class LandingpageController extends Controller
             "title"         => "Contact | IDHAM PERKASA",
             "products"      => Product::all(),
             "categories"    => Category::all(),
+            "contacts"      => Contact::all(),
             "nav_item"      => $nav_item
         ]);
     }

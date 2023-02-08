@@ -31,7 +31,17 @@
             <h5 class="text-white">Contact</h5>
             <hr>
             <div class="addresses text-start">
-                <div class="address mb-4">
+                @foreach ($contacts as $contact)
+                    <div class="address mb-4">
+                        <h6>{{ $contact->location }}</h6>
+                        <small>{{ $contact->address }}</small> 
+                        <br>
+                        <small>{{ $contact->email }}</small>
+                        <br>
+                        <small class="">{{ $contact->telp }}</small>
+                    </div>
+                @endforeach
+                {{-- <div class="address mb-4">
                     <h6>Surabaya</h6>
                     <small>Jl. Simolawang Blok 1 No.23, Simokerto, Kec. Simokerto Kota Surabaya, Jawa Timur 60144</small> 
                     <br>
@@ -45,7 +55,7 @@
                     <br>
                     <small class="text-decoration-underline">balikapan@idhamperkasa.com</small>
                     <small class="">0812 3456 7890</small>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

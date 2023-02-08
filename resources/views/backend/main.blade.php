@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="developer" content="Muhammad Najib Abdulloh">
+    <meta name="Developer" content="Muhammad Najib Abdulloh - Adi Tech">
 
     <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -29,15 +29,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 
-    {{-- Summernote --}}
-    {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> --}}
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs5.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs5.min.js"></script>
-
     {{-- Local CSS --}}
-    {{-- <link rel="stylesheet" href="css/main.css"> --}}
-    <link rel="stylesheet" href="{{ asset('summernote/summernote.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 
     <style>
@@ -98,7 +90,6 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 
     {{-- <script src="js/main.js"></script> --}}
-    <script src="{{ asset('summernote/summernote.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
 
 </body>

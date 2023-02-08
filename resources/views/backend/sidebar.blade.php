@@ -25,6 +25,12 @@
           Slider
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('dashboard/contact') ? 'active' : '' }}" href="/dashboard/contact">
+          <span data-feather="phone"></span>
+          Contact
+        </a>
+      </li>
     </ul>
   </div>
 </nav>

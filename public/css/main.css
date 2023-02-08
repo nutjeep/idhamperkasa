@@ -234,7 +234,8 @@ body ul li a {
   font-size: 14px;
 }
 
-.body-content .content .contact table tr, .body-content .content .contact td {
+.body-content .content .contact table tr,
+.body-content .content .contact td {
   padding: .5rem 0;
 }
 

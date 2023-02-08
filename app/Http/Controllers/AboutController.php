@@ -26,10 +26,10 @@ class AboutController extends Controller
     public function update(Request $request, About $about)
     {
         $validatedData = $request->validate([
-            'about' => 'required',
-            'company' => 'required',
-            'visi'  => 'required',
-            'misi'  => 'required'
+            'about'     => 'required',
+            'company'   => 'required',
+            'visi'      => 'required',
+            'misi'      => 'required'
         ]);
 
         About::where('id', $about->id)->update($validatedData);

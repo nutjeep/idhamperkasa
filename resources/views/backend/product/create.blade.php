@@ -42,7 +42,7 @@
             <div class="mb-3">
                 <label for="catalog">Cover image</label>
                 <input type="file" accept="image/*" class="form-control @error('catalog') is-invalid @enderror" name="catalog" id="catalog">
-                <p class="text-black-50">Max file 500 kb</p>
+                <p class="text-black-50">Max file 500 kb | Click <a href="https://squoosh.app/">here</a> for resizing image</p>
                 @error('catalog')
                     <div class="invalid-feedback">
                         {{ $message }}
