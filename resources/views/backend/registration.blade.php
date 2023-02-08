@@ -42,7 +42,7 @@
     }
   </style>
   <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-  <title>Login | IDHAM</title>
+  <title>Registration | IDHAM PERKASA</title>
 </head>
 <body>
   <div class="container logo">
@@ -64,15 +64,9 @@
 
   <main>
     <div class="form">
-      <h3 class="text-center mb-5 fw-bold text-white">Login Form</h3>
+      <h3 class="text-center mb-5 fw-bold text-white">Registration</h3>
 
-      @if(session()->has('loginError'))
-        <div class="alert alert-danger" role="alert">
-          {{ session('loginError') }}
-        </div>
-      @endif
-
-      <form action="/login" method="post">
+      <form action="/registration" method="post">
         @csrf
         <div class="input">
           <div class="form-floating mb-3">
@@ -84,14 +78,14 @@
           </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="name@example.com" name="username" value="{{ old('username') }}" required>
+            <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="username" name="username" value="{{ old('username') }}" required>
             <label for="username">Username</label>
             @error('username')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
            
-          <div class="form-floating mb-5">
+          <div class="form-floating mb-3">
             <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password" name="password" required>
             <label for="password">Password</label>
             @error('password')
@@ -100,15 +94,16 @@
             <input class="mt-2" type="checkbox" onclick="show_password()"> Show password
           </div>
 
-          <div class="form-floating mb-5">
-            <input type="confirm" class="form-control @error('confirm') is-invalid @enderror" id="confirm" placeholder="Confirm password" name="confirm" required>
-            <label for="confirm">Confirm password</label>
-            @error('confirm')
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" placeholder="confirm password" name="password_confirmation" required>
+            <label for="password_confirmation">Confirm password</label>
+            @error('password_confirmation')
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
+            <input class="mt-2" type="checkbox" onclick="show_password_confirmation()"> Show confirmation
           </div>
         </div>
-        <button class="btn btn-primary">Login</button>
+        <button class="btn btn-primary">Register</button>
       </form>
     </div>
   </main>
@@ -116,6 +111,14 @@
   <script>
     function show_password() {
       const password = document.getElementById("password");
+      if ( password.type === "password" ) {
+        password.type = "text"
+      } else {
+        password.type = "password"
+      }
+    }
+    function show_password_confirmation() {
+      const password = document.getElementById("password_confirmation");
       if ( password.type === "password" ) {
         password.type = "text"
       } else {

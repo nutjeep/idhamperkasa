@@ -31,55 +31,13 @@ class DatabaseSeeder extends Seeder
         ]); 
 
         Category::create([
-            'category_name'  => 'Seal',
+            'category_name'  => 'Seal'
         ]);
         Category::create([
-            'category_name'  => 'Safety',
+            'category_name'  => 'Safety'
         ]);
         Category::create([
-            'category_name'  => 'Iron',
+            'category_name'  => 'Iron'
         ]);
-
-        // Category::create([
-        //     'category_name'  => 'Furniture',
-        // ]);
-
-        // Product::create([
-        //     'product_name'  => 'Rod Seal',
-        //     'slug'          => 'rod-seal',
-        //     'category_id'   => 1
-        // ]);
-        // Product::create([
-        //     'product_name'  => 'Piston Seal',
-        //     'slug'          => 'piston-seal',
-        //     'category_id'   => 1
-        // ]);
-        // Product::create([
-        //     'product_name'  => 'Wiper Seal',
-        //     'slug'          => 'wiper-seal',
-        //     'category_id'   => 1
-        // ]);
-
-        // Product::create([
-        //     'product_name'  => 'Helmet',
-        //     'slug'          => 'helmet',
-        //     'category_id'   => 2
-        // ]);
-        // Product::create([
-        //     'product_name'  => 'Fire Jacket',
-        //     'slug'          => 'fire-jacket',
-        //     'category_id'   => 2
-        // ]);
-
-        // Product::create([
-        //     'product_name'  => 'Kitchen set',
-        //     'slug'          => 'kitchen-set',
-        //     'category_id'   => 3
-        // ]);
-        // Product::create([
-        //     'product_name'  => 'Chair and table',
-        //     'slug'          => 'chair-and-table',
-        //     'category_id'   => 3
-        // ]);
     }
 }

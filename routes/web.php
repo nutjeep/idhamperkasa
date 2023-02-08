@@ -24,6 +24,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/registration', [LoginController::class, 'registration']);
+Route::post('/registration', [LoginController::class, 'storeRegistration']);
 
 Route::get('/dashboard', function(){
     return view('backend.dashboard', [

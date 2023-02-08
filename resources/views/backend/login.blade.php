@@ -43,7 +43,7 @@
 
     </style>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <title>Login | IDHAM</title>
+    <title>Login | IDHAM PERKASA</title>
 </head>
 <body>
     <div class="container logo">

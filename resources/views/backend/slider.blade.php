@@ -64,6 +64,7 @@
           <div class="mb-3 slider">
             <label for="slider" class="form-label">Upload Image Slider</label>
             <input type="file" class="form-control form-control-sm" id="slider" name="slider" required>
+            <p class="text-black-50">Max file 2 mb | Click <a href="https://squoosh.app/">here</a> for resizing image</p>
           </div>
         </div>
         <div class="modal-footer">
