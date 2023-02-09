@@ -15,6 +15,8 @@
     <meta name="theme-color" content="#1E6F5C">
     <meta name="theme-color" content="#E6DD3B">
 
+    <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
+
     <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
