@@ -21,7 +21,7 @@
                             $products = App\Models\Product::where('category_id', $category->id)->get();
                         @endphp
                         @foreach($products as $product)
-                            <small>- {{ $product->product_name }}</small>
+                            <small><b class="text-white">|</b> {{ $product->product_name }}</small>
                         @endforeach
                     </div>
                 </div>
