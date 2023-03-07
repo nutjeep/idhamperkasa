@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="developer" content="M. Najib Abdulloh - Abdi Tech">
 
+  <meta name="robots" content="index, follow">
+
   <!-- Goole font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

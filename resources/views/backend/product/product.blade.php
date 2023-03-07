@@ -54,5 +54,13 @@
         @endforelse
       </tbody>
     </table>
+    <div class="pagination" style="display: list-item;">
+      <div class="page mb-2">
+        Page : {{ $products->currentPage() }}
+      </div>
+      <div class="page">
+        {{ $products->links() }}
+      </div>
+    </div>
   </div>
 @endsection

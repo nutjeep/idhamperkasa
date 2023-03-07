@@ -21,7 +21,7 @@ class DashboardProductController extends Controller
     {
         return view('backend.product.product', [
             'title'     => 'Product | Dashboard',
-            'products'  => Product::all(),
+            'products'  => Product::paginate(2),
             'categories' => Category::all(),
         ]);
     }
@@ -55,7 +55,7 @@ class DashboardProductController extends Controller
         ]);
 
         if($request->file('catalog')) {
-            $validatedData['catalog'] = $request->file('catalog')->store('catalog-images');
+            $validatedData['catalog'] = $request->file('catalog')->store('profile-images');
         }
 
         $create = Product::create($validatedData);
