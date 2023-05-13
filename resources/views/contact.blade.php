@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main', ['canonical' => route('contact')])
 
 @section('body')
 <div class="body-content">

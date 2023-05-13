@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main', ['canonical' => route('product', $canonical)])
 
 @section('body')
 <div class="body-content">

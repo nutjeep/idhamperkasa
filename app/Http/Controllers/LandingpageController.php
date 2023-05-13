@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class LandingpageController extends Controller
 {
-    public function index () 
+    public function index (Product $product) 
     {
         $path = storage_path() . '/json/navbar.json';
         $json = json_decode(file_get_contents($path), true);
@@ -24,7 +24,8 @@ class LandingpageController extends Controller
             "categories"    => Category::all(),
             "sliders"       => Slider::all(),
             "contacts"      => Contact::all(),
-            "nav_item"      => $nav_item
+            "nav_item"      => $nav_item,
+            "product"       => $product
         ]);
     }
 
@@ -56,6 +57,23 @@ class LandingpageController extends Controller
             "categories"    => Category::all(),
             "contacts"      => Contact::all(),
             "nav_item"      => $nav_item
+        ]);
+    }
+
+    public function product (Product $product)
+    {
+        $path = storage_path() . '/json/navbar.json';
+        $json = json_decode(file_get_contents($path), true);
+        $nav_item = $json['navbar'];
+
+        return view('product', [
+            'title'         => $product->product_name,
+            'canonical'     => $product->slug,
+            'categories'    => Category::all(),
+            'contacts'      => Contact::all(),
+            'product'       => $product,
+            'galleries'     => $product->gallery,
+            'nav_item'      => $nav_item
         ]);
     }
 }

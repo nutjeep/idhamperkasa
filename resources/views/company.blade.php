@@ -1,4 +1,6 @@
-@extends('main')
+@extends('main', [
+    'canonical' => route('company'),
+])
 
 @section('body')
 

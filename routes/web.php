@@ -15,9 +15,9 @@ use App\Http\Controllers\DashboardProductController;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [LandingpageController::class, 'index']);
-Route::get('/company', [LandingpageController::class, 'company']);
-Route::get('/contact', [LandingpageController::class, 'contact']);
+Route::get('/', [LandingpageController::class, 'index'])->name('home');
+Route::get('/company', [LandingpageController::class, 'company'])->name('company');
+Route::get('/contact', [LandingpageController::class, 'contact'])->name('contact');
 
 // <============ Backend ============>
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -56,4 +56,4 @@ Route::get('dashboard/contact/{contact:id}/edit', [ContactController::class, 'ed
 Route::put('dashboard/contact/{contact:id}', [ContactController::class, 'update'])->middleware('auth');
 Route::delete('dashboard/contact/{contact:id}', [ContactController::class, 'delete']);
 
-Route::get('{product:slug}', [ProductController::class, 'show']);
+Route::get('{product:slug}', [LandingpageController::class, 'product'])->name('product');

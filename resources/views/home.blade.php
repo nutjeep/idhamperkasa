@@ -1,4 +1,6 @@
-@extends('main')
+@extends('main', [
+    'canonical'         => route('home'),
+])
 
 @section('body')
 @include('component.carousel')
