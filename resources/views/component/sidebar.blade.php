@@ -7,7 +7,8 @@
     <div class="menu">
         @foreach ($categories as $category)
             <div class="item">
-                <a class="sub-btn">{{ $category->category_name }}
+                <a class="sub-btn">
+                    {{ $category->category_name }}
                     <i class="bi bi-caret-right-fill dropdown"></i>
                 </a>
                 <div class="sub-menu">  

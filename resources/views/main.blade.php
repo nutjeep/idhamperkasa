@@ -11,7 +11,7 @@
     <meta title="CV. IDHAM PERKASA" content="CV.IDHAM PERKASA adalah perusahaan swasta yang bergerak di bidang Rubber Product (Seal, Anti Slip, Pallet, Membran, dll). Dengan didukung oleh sumber daya manusia yang berpengalaman di dalam lingkup karet dan ditunjang dengan mesin cetak & CNC modern">
     <meta name="description" content="CV. IDHAM PERKASA merupakan perusahaaan yang bergerak di bidang general supplier, untuk menjadi bagian support kebutuhan mitra kerja dalam bidang pengadaan barang">
     <meta name="description" content="CV.IDHAM PERKASA juga melayani segala macam jenis cetak karet dengan berbagai bentuk untuk memenuhi kebutuhan pasar dan perkembangan  yang begitu pesat. Kami menggunakan mesin CNC dalam pembuatan matras moding agar menghasilkan matras dengan presisi yang cukup tinggi, sehingga memenuhi persyaratan untuk kebutuhan yang sangat spesifik">
-    
+    <meta name="google-site-verification" content="zNh5HQd2fqGuVak1hgKj7aHF8E8ODgxfJmMjHAj3WyE" />
     <meta name="theme-color" content="#1E6F5C">
     <meta name="theme-color" content="#E6DD3B">
 
