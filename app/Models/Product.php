@@ -2,23 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Company;
 use App\Models\Category;
-use App\Models\Gallery;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
     use HasFactory;
-
     protected $guarded = ['id']; 
 
     public function category() {
         return $this->belongsTo(Category::class);
     }
-    
-    public function gallery() {
-        return $this->hasMany(Gallery::class);
-    }
 
+    public function company() {
+        return $this->belongsTo(Company::class);
+    }
 }

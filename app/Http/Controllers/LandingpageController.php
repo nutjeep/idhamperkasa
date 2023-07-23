@@ -2,78 +2,66 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\About;
 use App\Models\Slider;
-use App\Models\Contact;
 use App\Models\Product;
+use App\Models\Company;
 use App\Models\Category;
+use App\Models\PhotoProduct;
 use Illuminate\Http\Request;
 
 class LandingpageController extends Controller
 {
     public function index (Product $product) 
     {
-        $path = storage_path() . '/json/navbar.json';
-        $json = json_decode(file_get_contents($path), true);
-        $nav_item = $json['navbar']; 
+        $title      = "Idham Perkasa";
+        $sliders    = Slider::get();
+        $companies  = Company::with('product', 'companyDetail')->get();
+        $products   = Product::with('company', 'category')->get();
+        $categories = Category::with('product')->get();
 
-        return view('home', [
-            "title"         => "IDHAM PERKASA",
-            "abouts"        => About::all(),
-            "products"      => Product::all(),
-            "categories"    => Category::all(),
-            "sliders"       => Slider::all(),
-            "contacts"      => Contact::all(),
-            "nav_item"      => $nav_item,
-            "product"       => $product
-        ]);
+        return view('home', compact(
+            'title', 'sliders', 'companies', 'categories', 'products'
+        ));
     }
 
-    public function company () 
+    public function company ($slug) 
     {
-        $path = storage_path() . '/json/navbar.json';
-        $json = json_decode(file_get_contents($path), true);
-        $nav_item = $json['navbar'];
+        $company    = Company::where('slug', $slug)->first();
+        $title      = $company->name;
+        $companies  = Company::get();
+        $sliders    = Slider::get();
+        $categories = Category::with('product')->get();
+        $products   = Product::get();
 
-        return view('company', [
-            "title"         => 'Profile | IDHAM PERKASA',
-            "abouts"        => About::all(),
-            "products"      => Product::all(),
-            "categories"    => Category::all(),
-            "contacts"      => Contact::all(),
-            "nav_item"      => $nav_item
-        ]);
+        return view('company', compact(
+            'company', 'title', 'companies', 'sliders', 'categoriesPt', 'products'
+        ));
     }
 
-    public function contact ()
+    public function contact (Product $product)
     {
-        $path = storage_path() . '/json/navbar.json';
-        $json = json_decode(file_get_contents($path), true);
-        $nav_item = $json['navbar'];
+        $title      = "Contact";
+        $sliders    = Slider::get();
+        $companies  = Company::get();
+        $categories = Category::with('product')->get();
+        $products   = Product::get();
 
-        return view('contact', [
-            "title"         => "Contact | IDHAM PERKASA",
-            "products"      => Product::all(),
-            "categories"    => Category::all(),
-            "contacts"      => Contact::all(),
-            "nav_item"      => $nav_item
-        ]);
+        return view('contact', compact(
+            'title', 'sliders', 'companies', 'categories', 'products'
+        ));
     }
 
-    public function product (Product $product)
+    public function product ($slug)
     {
-        $path = storage_path() . '/json/navbar.json';
-        $json = json_decode(file_get_contents($path), true);
-        $nav_item = $json['navbar'];
+        $product        = Product::where('slug', $slug)->first();
+        $title          = $product->name;
+        $sliders        = Slider::get();
+        $companies      = Company::get();
+        $categories     = Category::with('product')->get();
+        $photoProduct   = PhotoProduct::where('product_id', $product->id)->get();
 
-        return view('product', [
-            'title'         => $product->product_name,
-            'canonical'     => $product->slug,
-            'categories'    => Category::all(),
-            'contacts'      => Contact::all(),
-            'product'       => $product,
-            'galleries'     => $product->gallery,
-            'nav_item'      => $nav_item
-        ]);
+        return view('product', compact(
+            'product', 'title', 'sliders', 'companies', 'categories', 'photoProduct'
+        ));
     }
 }

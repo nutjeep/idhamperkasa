@@ -30,12 +30,7 @@ body ul li a {
 }
 
 .logo h1 {
-  color: #1E6F5C;
   font-weight: 700;
-}
-
-.logo h1 span {
-  color: #E6DD3B;
 }
 
 .navbar {
@@ -169,28 +164,37 @@ body ul li a {
   height: 100%;
 }
 
-.body-content .side-bar {
+.body-content .sidebar {
   z-index: 999999;
   height: fit-content;
   background-color: #289672;
   width: 20vw;
   float: left;
+  height: min-content;
   padding-bottom: 30px;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
 }
 
-.body-content .side-bar h5 {
+.body-content .sidebar h4{
   background-color: #1E6F5C;
-  padding: .5rem;
+  padding: 1rem;
+  color: white;
+  font-weight: 500;
+  color: #E6DD3B;  
+}
+.body-content .sidebar h5 {
+  background-color: #1E6F5C;
+  padding: 1rem;
   color: white;
   font-weight: 500;
 }
 
-.body-content .side-bar .menu .item {
+.body-content .sidebar .menu .item {
   position: relative;
   cursor: pointer;
 }
 
-.body-content .side-bar .menu .item a {
+.body-content .sidebar .menu .item a {
   color: white;
   text-decoration: none;
   display: block;
@@ -198,7 +202,7 @@ body ul li a {
   padding: 5px 2rem;
 }
 
-.body-content .side-bar .menu .item a:hover {
+.body-content .sidebar .menu .item a:hover {
   color: #E6DD3B;
   background: rgba(255, 255, 255, 0.8);
   -webkit-transition: .3s ease;
@@ -206,7 +210,7 @@ body ul li a {
   color: #1E6F5C;
 }
 
-.body-content .side-bar .menu .item a .dropdown {
+.body-content .sidebar .menu .item a .dropdown {
   position: absolute;
   color: white;
   right: 1rem;
@@ -214,21 +218,21 @@ body ul li a {
   transition: .3s ease;
 }
 
-.body-content .side-bar .menu .item a .rotate {
+.body-content .sidebar .menu .item a .rotate {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
-.body-content .side-bar .menu .item a:hover .dropdown {
+.body-content .sidebar .menu .item a:hover .dropdown {
   color: #1E6F5C;
 }
 
-.body-content .side-bar .menu .item .sub-menu {
+.body-content .sidebar .menu .item .sub-menu {
   background-color: #29BB89;
   display: none;
 }
 
-.body-content .side-bar .menu .item .sub-menu a {
+.body-content .sidebar .menu .item .sub-menu a {
   padding-left: 50px;
   line-height: 2rem;
   font-size: 14px;
@@ -268,7 +272,7 @@ footer {
   bottom: 0;
 }
 
-footer .logo h3 span {
+footer .logo h2 span {
   color:#E6DD3B;
 }
 
@@ -289,7 +293,7 @@ footer .row {
   .body-content {
     position: inherit;
   }
-  .body-content .side-bar {
+  .body-content .sidebar {
     -webkit-transform: translate(-110%, -50%);
             transform: translate(-110%, -50%);
 
