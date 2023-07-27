@@ -3,6 +3,29 @@
 @push('head')
   {{-- DataTables --}}
   <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">  
+  {{-- Trix Editor --}}
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/trix.css') }}">
+  <script type="text/javascript" src="{{ asset('js/trix.js') }}"></script>
+@endpush
+
+@push('style')
+  <style>
+    trix-toolbar [data-trix-button-group="file-tools"],
+    trix-toolbar .trix-button--icon-heading-1,
+    trix-toolbar .trix-button--icon-quote,
+    trix-toolbar .trix-button--icon-strike,
+    trix-toolbar .trix-button--icon-link,
+    trix-toolbar .trix-button--icon-increase-nesting-level,
+    trix-toolbar .trix-button--icon-decrease-nesting-level
+    { display:none; }
+
+    .create-product trix-toolbar [data-trix-button-group="file-tools"]
+    {display: inherit;}
+
+    .create-product trix-toolbar [data-trix-button-group="text-tools"],
+    .create-product trix-toolbar [data-trix-button-group="block-tools"]
+    { display:none; }
+  </style>
 @endpush
 
 @section('content')
@@ -78,6 +101,11 @@
               @endforeach
             </select>
           </div>
+          <div class="mb-3">
+            <label for="ProductDesc">Description</label>
+            <input id="desc" type="hidden" name="description" required>
+            <trix-editor input="desc"></trix-editor>
+          </div>
           <input type="hidden" name="slug">
           <input type="hidden" name="company_id">
           <div class="mb-3">
@@ -86,7 +114,7 @@
               <input type="file" class="form-control" name="img_name[]" id="inputGroupFile02" multiple>
               <label class="input-group-text" for="inputGroupFile02"><i class="far fa-images"></i></label>
             </div>
-            *Max file size: 300 KB
+            <div class="fw-bold text-danger">*Max file size: 300 KB</div>
           </div>
         </div>
         <div class="modal-footer">

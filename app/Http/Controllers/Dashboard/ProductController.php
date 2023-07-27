@@ -32,6 +32,7 @@ class ProductController extends Controller
         $product->company_id    = '1';
         $product->name          = $request->name;
         $product->slug          = Str::slug($request->name);
+        $product->description   = $request->description;
         $product->save();
 
         // $request->validate([
@@ -40,9 +41,11 @@ class ProductController extends Controller
 
         foreach($request->file('img_name') as $imagefile){
             $path               = $imagefile->store('product-images');
-
             $photo              = new PhotoProduct;
             $photo->product_id  = $product->id;
+            $request->validate([
+            'img_name'  => 'required|max:300'
+            ]);
             $photo->img_name    = $path;
             $photo->save();
         }
@@ -94,15 +97,26 @@ class ProductController extends Controller
     {
         $title          = 'Edit Product';
         $product        = Product::where('slug', $slug)->first();
+        $categories     = Category::get();
         $photoProduct   = PhotoProduct::where('product_id', $product->id)->get();
 
-        return view('dashboard.product.edit', compact('title', 'product', 'photoProduct'));
+        return view('dashboard.product.edit', compact('title', 'product', 'categories', 'photoProduct'));
     }
 
     public function update(Request $request, $slug)
     {
-        $product        = Product::where('slug', $slug)->first();
-        $product->name  = $request->name;
+        $request->validate([
+            'name'          => 'required',
+            'slug'          => 'unique:products,slug',
+            'category_id'   => 'required',
+            'description'   => ''
+        ]);
+
+        $product               = Product::where('slug', $slug)->first();
+        $product->name         = $request->name;
+        $product->slug         = Str::slug($request->name);
+        $product->category_id  = $request->category_id;
+        $product->description  = $request->description;
         $product->save();
 
         notify()->success('Produk Berhasil Diubah', 'Success!');

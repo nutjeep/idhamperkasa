@@ -13,6 +13,7 @@ body {
   margin-top: 1rem;
   font-family: 'Manrope', sans-serif;
   height: 100vh;
+  background-color: #EEEEE4;
 }
 
 body h2 {
@@ -31,6 +32,10 @@ body ul li a {
 
 .logo h1 {
   font-weight: 700;
+}
+
+.logo img {
+  filter: drop-shadow(-2px 2px 2px rgba(0,0,0,0.4));
 }
 
 .navbar {

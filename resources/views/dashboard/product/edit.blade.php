@@ -1,6 +1,29 @@
 @extends('layout.app-dashboard')
 
+@push('head')
+  {{-- Trix Editor --}}
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/trix.css') }}">
+  <script type="text/javascript" src="{{ asset('js/trix.js') }}"></script>
+@endpush
+
 @push('style')
+  <style>
+    trix-toolbar [data-trix-button-group="file-tools"],
+    trix-toolbar .trix-button--icon-heading-1,
+    trix-toolbar .trix-button--icon-quote,
+    trix-toolbar .trix-button--icon-strike,
+    trix-toolbar .trix-button--icon-link,
+    trix-toolbar .trix-button--icon-increase-nesting-level,
+    trix-toolbar .trix-button--icon-decrease-nesting-level
+    { display:none; }
+
+    .create-product trix-toolbar [data-trix-button-group="file-tools"]
+    {display: inherit;}
+
+    .create-product trix-toolbar [data-trix-button-group="text-tools"],
+    .create-product trix-toolbar [data-trix-button-group="block-tools"]
+    { display:none; }
+  </style>
   <style>
     .photo-product, 
     .photo-product img {
@@ -45,11 +68,32 @@
 @endif
 
 <div class="row my-5">
-  <div class="col-lg-7 col-sm-12" class="d-flex">
-    <form action="{{ route('update.product', $product->slug) }}" method="post" class="d-flex">
+  <div class="col-lg-10 col-sm-12" class="d-flex">
+    <form action="{{ route('update.product', $product->slug) }}" method="post">
       @method('put')
       @csrf
-      <input type="text" class="me-3 form-control form-control-lg" name="name" value="{{ $product->name }}" autofocus>
+      <div class="mb-3">
+        <label for="name">Name</label>
+        <input id="name" type="text" class="me-3 form-control form-control-lg" name="name" value="{{ old('name', $product->name) }}" autofocus>
+      </div>
+      <input type="hidden" name="slug">
+      <div class="mb-3">
+        <label for="category">Category</label>
+        <select class="form-select" id="select2" name="category_id" required>
+          @foreach ($categories as $category)
+            @if (old('category_id', $product->category_id) == $category->id)
+              <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+            @else
+              <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endif
+          @endforeach
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="ProductDesc">Description</label>
+        <input id="desc" type="hidden" name="description" value="{{ old('description', $product->description) }}" required>
+        <trix-editor input="desc"></trix-editor>
+      </div>
       <div>
         <button type="submit" class="btn btn-info">Save</button>
       </div>
@@ -57,7 +101,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row mb-5">
   <div>
     <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addPhotoProduct">Add Image</button>
   </div>
@@ -117,7 +161,7 @@
               <input type="file" class="form-control" name="img_name[]" id="inputGroupFile02" multiple>
               <label class="input-group-text" for="inputGroupFile02"><i class="far fa-images"></i></label>
             </div>
-            *Max file size: 300 KB
+            <div class="fw-bold text-danger">*Max file size: 300 KB</div>
           </div>
         </div>
         <div class="modal-footer">

@@ -1,11 +1,11 @@
 <div class="container mb-3">
   <div class="logo d-flex mb-3">
     <img src="{{ asset('img/logo-pt.webp') }}" alt="Logo" style="max-height: 50px; width: auto; margin-right: 15px;">
-    <h1 style="color:#1a2189;" class="h2">PT. IDHAM <span style="color: #E6DD3B;">SAPTA PERKASA</span></h1>
+    <h1 style="color:#1E6F5C;" class="h2">PT. IDHAM SAPTA PERKASA</h1>
   </div>
   <div class="logo d-flex">
     <img src="{{ asset('img/logo-cv.webp') }}" alt="Logo" style="max-height: 50px; width: auto; margin-right: 15px;">
-    <h1 style="color:#1E6F5C;" class="h2">CV. IDHAM <span style="color: #E6DD3B;">PERKASA</span></h1>
+    <h1 style="color:#1E6F5C;" class="h2">CV. IDHAM PERKASA</h1>
   </div>
 </div>
 <div class="navbar mb-5">

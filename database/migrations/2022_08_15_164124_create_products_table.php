@@ -17,8 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->foreignId('category_id');
             $table->foreignId('company_id');
-            $table->string('name')->nullable();
+            $table->string('name');
             $table->string('slug')->unique();
+            $table->longText('description');
             $table->timestamps();
         });
     }

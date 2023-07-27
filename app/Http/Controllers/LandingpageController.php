@@ -34,7 +34,7 @@ class LandingpageController extends Controller
         $products   = Product::get();
 
         return view('company', compact(
-            'company', 'title', 'companies', 'sliders', 'categoriesPt', 'products'
+            'company', 'title', 'companies', 'sliders', 'categories', 'products'
         ));
     }
 

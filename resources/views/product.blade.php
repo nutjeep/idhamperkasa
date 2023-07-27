@@ -42,8 +42,8 @@
     <h2 class="mb-3" style="font-weight: 600;">{{ $product->name }}</h2>
     <div class="row mb-3">
       <div class="col-lg-12">
-        <div class="photo">
-
+        <div class="description">
+          {!! $product->description !!}
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
 
         <!-- Modal Photo Product -->
         <div class="modal fade" id="photo-{{ $photo->id }}" tabindex="-1" aria-labelledby="photo-{{ $photo->id }}Label" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title h3" id="photo-{{ $photo->id }}Label">{{ $product->name }}</h1>
