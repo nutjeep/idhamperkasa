@@ -14,7 +14,7 @@
             <tbody>
               <tr>
                 <th scope="row"><i class="bi bi-telephone me-3"></i></th>
-                <td>0813 5772 4558 | 0812 2547 4891</td>
+                <td>0813 5772 4558 | 0819 9988 4730</td>
               </tr>
               <tr>
                 <th scope="row"><i class="bi bi-envelope me-3"></i></th>

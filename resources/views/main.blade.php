@@ -8,9 +8,15 @@
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="zNh5HQd2fqGuVak1hgKj7aHF8E8ODgxfJmMjHAj3WyE" />
 
-    <meta name="keywords" content="Surabaya, Perusahaan seal Surabaya, Perusahaan seal, Seal Maker, Seal berkualitas, CNC, Rubber product, Anti slip, Pallet, Membran">
-    <meta title="IDHAM PERKASA" content="IDHAM PERKASA adalah perusahaan swasta yang bergerak di bidang Rubber Product (Seal, Anti Slip, Pallet, Membran, dll). Dengan didukung oleh sumber daya manusia yang berpengalaman di dalam lingkup karet dan ditunjang dengan mesin cetak & CNC modern">
-    <meta name="description" content="IDHAM PERKASA merupakan perusahaaan yang bergerak di bidang general supplier, untuk menjadi bagian support kebutuhan mitra kerja dalam bidang pengadaan barang. CV.IDHAM PERKASA juga melayani segala macam jenis cetak karet dengan berbagai bentuk untuk memenuhi kebutuhan pasar dan perkembangan  yang begitu pesat. Kami menggunakan mesin CNC dalam pembuatan matras moding agar menghasilkan matras dengan presisi yang cukup tinggi, sehingga memenuhi persyaratan untuk kebutuhan yang sangat spesifik.">
+    <meta name="keywords" content="Perusahaan seal Surabaya, Perusahaan seal, Seal Maker, Seal berkualitas, CNC, Rubber product, Anti slip, Pallet, Membran, {{ $title }}, surabaya">
+
+    @if ($productDetail == true)
+      <meta name="description" content="{{ strip_tags($product->description) }}">
+    @else
+      <meta name="description" content="PT. Idham Sapta Perkasa merupakan perusahaaan yang bergerak di bidang general supplier, untuk menjadi bagian support kebutuhan mitra kerja dalam bidang pengadaan barang. PT. Idham Sapta Perkasa juga melayani segala macam jenis cetak karet dengan berbagai bentuk untuk memenuhi kebutuhan pasar dan perkembangan  yang begitu pesat. Kami menggunakan mesin CNC dalam pembuatan matras moding agar menghasilkan matras dengan presisi yang cukup tinggi, sehingga memenuhi persyaratan untuk kebutuhan yang sangat spesifik. Dengan didukung oleh sumber daya manusia yang berpengalaman di dalam lingkup karet dan ditunjang dengan mesin cetak & CNC modern">
+    @endif
+
+    
     <meta name="theme-color" content="#1E6F5C, #E6DD3B">
     <link rel="canonical" href="{{ $canonical }}">
     <title>{{ $title }}</title>

@@ -18,9 +18,10 @@ class LandingpageController extends Controller
         $companies  = Company::with('product', 'companyDetail')->get();
         $products   = Product::with('company', 'category')->get();
         $categories = Category::with('product')->get();
+        $productDetail  = false;
 
         return view('home', compact(
-            'title', 'sliders', 'companies', 'categories', 'products'
+            'title', 'sliders', 'companies', 'categories', 'products', 'productDetail'
         ));
     }
 
@@ -32,9 +33,10 @@ class LandingpageController extends Controller
         $sliders    = Slider::get();
         $categories = Category::with('product')->get();
         $products   = Product::get();
+        $productDetail  = false;
 
         return view('company', compact(
-            'company', 'title', 'companies', 'sliders', 'categories', 'products'
+            'company', 'title', 'companies', 'sliders', 'categories', 'products', 'productDetail'
         ));
     }
 
@@ -45,9 +47,10 @@ class LandingpageController extends Controller
         $companies  = Company::get();
         $categories = Category::with('product')->get();
         $products   = Product::get();
+        $productDetail  = false;
 
         return view('contact', compact(
-            'title', 'sliders', 'companies', 'categories', 'products'
+            'title', 'sliders', 'companies', 'categories', 'products', 'productDetail'
         ));
     }
 
@@ -59,9 +62,10 @@ class LandingpageController extends Controller
         $companies      = Company::get();
         $categories     = Category::with('product')->get();
         $photoProduct   = PhotoProduct::where('product_id', $product->id)->get();
+        $productDetail  = true;
 
         return view('product', compact(
-            'product', 'title', 'sliders', 'companies', 'categories', 'photoProduct'
+            'product', 'title', 'sliders', 'companies', 'categories', 'photoProduct', 'productDetail'
         ));
     }
 }
